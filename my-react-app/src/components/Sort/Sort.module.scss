@@ -1,0 +1,29 @@
+.root {
+	width: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-right: 50px;
+	padding: 5px;
+
+	border: 0.2px solid rgba(0, 0, 0, 0.158);
+
+	background-color: #fff;
+
+	select {
+		width: 140px;
+
+		:optional {
+			box-shadow: 0 5px 15px black;
+		}
+
+		option {
+			background-color: rgba(238, 238, 238, 0.726);
+		}
+	}
+}
+
+.fontStyle {
+	font-family: 'Rajdhani' sans-serif;
+}
