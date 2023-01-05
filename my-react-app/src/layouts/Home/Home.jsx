@@ -11,22 +11,38 @@ import Paginate from '../../components/Paginate/Paginate';
 function Home() {
 	const [countries, setCountries] = useState([]);
 	const [itemsPerPage, setItemsPerPage] = useState([]);
+	const [region, setRegion] = useState('All');
+
+	async function fetchData() {
+		try {
+			const response = await axios.get('https://restcountries.com/v3.1/all');
+			setCountries(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	async function fetchDataByRegion() {
+		try {
+			const response = await axios.get(`https://restcountries.com/v3.1/region/${region}`);
+			setCountries(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	function filterRegion() {
+		if (region === 'All') {
+			return fetchData();
+		} else {
+			return fetchDataByRegion();
+		}
+	}
 
 	useEffect(() => {
-		async function fetchData() {
-			try {
-				const response = await axios.get('https://restcountries.com/v3.1/all');
-				setCountries(response.data);
-			} catch (error) {
-				console.log(error);
-			}
-		}
+		filterRegion();
+	}, [region]);
 
-		fetchData();
-	}, []);
-
-	// console.log(countries);
-	console.log('itemsPerPage: ', itemsPerPage);
 	const renderCards = () => {
 		return !itemsPerPage.length
 			? countries.slice(0, 8).map(country => <Card key={country.flags.png} country={country} />)
@@ -35,7 +51,7 @@ function Home() {
 
 	return (
 		<>
-			<Filter />
+			<Filter setRegion={setRegion} />
 			<div className={styles.content}>{renderCards()}</div>
 			<Paginate style={styles.page} countries={countries} setItemsPerPage={setItemsPerPage} />
 		</>

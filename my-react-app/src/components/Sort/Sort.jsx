@@ -1,24 +1,19 @@
 import styles from './Sort.module.scss';
 
-function Sort() {
+const regions = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
+function Sort({ setRegion }) {
+	const onClickRegion = evt => {
+		setRegion(evt.target.value);
+	};
 	return (
 		<div className={styles.root}>
-			<select style={{ fontFamily: 'Rajdhani' }} name="" id="">
-				<option style={{ fontFamily: 'Rajdhani' }} value="1">
-					Africa
-				</option>
-				<option style={{ fontFamily: 'Rajdhani' }} value="2">
-					Americas
-				</option>
-				<option style={{ fontFamily: 'Rajdhani' }} value="3">
-					Asia
-				</option>
-				<option style={{ fontFamily: 'Rajdhani' }} value="4">
-					Europa
-				</option>
-				<option style={{ fontFamily: 'Rajdhani' }} value="5">
-					Oceania
-				</option>
+			<select style={{ fontFamily: 'Rajdhani' }} name="" id="" onChange={onClickRegion}>
+				{regions.map((region, index) => (
+					<option key={index} style={{ fontFamily: 'Rajdhani' }} value={region}>
+						{region}
+					</option>
+				))}
 			</select>
 		</div>
 	);
