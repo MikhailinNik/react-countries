@@ -1,17 +1,17 @@
+import { useState } from 'react';
+
 import styles from './Card.module.scss';
 
-import flagIcon from '../../assets/flag.png';
-
-function Card() {
+function Card({ country }) {
 	return (
 		<div className={styles.root}>
-			<img src={flagIcon} alt="" />
+			<img src={country.flags.png} alt="" />
 			<div className={styles.description}>
-				<h2>Russia</h2>
+				<h2>{country.name.common}</h2>
 				<ul>
-					<li>Populations: 124124</li>
-					<li>Region: Europa</li>
-					<li>Capital: Moscow</li>
+					<li>Populations: {country.population}</li>
+					<li>Region: {country.region}</li>
+					<li>Capital: {country.capital}</li>
 				</ul>
 			</div>
 		</div>

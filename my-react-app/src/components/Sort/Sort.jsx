@@ -3,7 +3,7 @@ import styles from './Sort.module.scss';
 function Sort() {
 	return (
 		<div className={styles.root}>
-			<select name="" id="">
+			<select style={{ fontFamily: 'Rajdhani' }} name="" id="">
 				<option style={{ fontFamily: 'Rajdhani' }} value="1">
 					Africa
 				</option>

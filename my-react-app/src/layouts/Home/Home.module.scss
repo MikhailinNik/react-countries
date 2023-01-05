@@ -1,0 +1,44 @@
+.content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.page {
+	display: flex;
+	flex-direction: row;
+
+	margin-left: 50px;
+	margin-bottom: 50px;
+
+	li {
+		width: 30px;
+		height: 20px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 20px;
+		background-color: rgba(0, 0, 0, 0.466);
+		color: #fff;
+		margin-left: 5px;
+		margin-right: 5px;
+
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgba(177, 177, 177, 0.301);
+			color: #000000;
+
+			transition: ease-in-out 0.3s;
+		}
+
+		a {
+			width: inherit;
+
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
