@@ -3,10 +3,10 @@ import Search from '../Search/Search';
 
 import styles from './Filter.module.scss';
 
-function Filter({ setRegion }) {
+function Filter({ nameCity, setNameCity, setRegion }) {
 	return (
 		<div className={styles.root}>
-			<Search />
+			<Search value={nameCity} setNameCity={setNameCity} />
 			<Sort setRegion={setRegion} />
 		</div>
 	);

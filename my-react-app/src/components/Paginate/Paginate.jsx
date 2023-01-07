@@ -9,11 +9,10 @@ function Paginate({ style, countries, setItemsPerPage }) {
 	const pageCount = Math.ceil(countries.length / itemsPerPage);
 	const endOffset = itemOffset + itemsPerPage;
 	const currentItems = countries.slice(itemOffset, endOffset);
-	console.log(currentItems);
 
 	const onPageClick = event => {
 		const newOffset = (event.selected * itemsPerPage) % countries.length;
-		console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+
 		setItemOffset(newOffset);
 		setItemsPerPage(currentItems);
 	};
